@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Folio</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <aside>
+      <div class="brand">
+        <i data-lucide="book-open"></i>
+        Folio
+      </div>
+      <nav>
+        <button class="nav-item active">
+          <i data-lucide="book-open"></i>
+          Curriculum
+        </button>
+        <button class="nav-item">
+          <i data-lucide="library"></i><a href="Backlog.html">  
+          Backlog
+          </a>
+        </button>
+      </nav>
+      <p class="sidebar-footer">Reading curriculum app</p>
+    </aside>
+
+    <main>
+
+          <!-- Main content -->
+    <main>
+
+      <!-- NEW HEADER CONTAINER ROW (Keeps Narrative Craft and maps the button) -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+        <div>
+          <p class="eyebrow" style="margin: 0;">Active Curriculum</p>
+          <!-- Keep this ID so JavaScript can still write your active theme name -->
+          <h1 id="curriculum-title">Narrative craft</h1>
+        </div>
+        
+        <!-- The top-right icon button from your mockup image -->
+        <a href="AllCurricula.html" class="btn-secondary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid #e2e8f0; border-radius: 6px; background: #ffffff; color: inherit; font-size: 0.875rem; font-weight: 500;">
+          <i data-lucide="columns-3"></i>
+          All curricula
+        </a>
+      </div>
+
+      <!-- Keep this ID so JavaScript can overwrite dates dynamically -->
+      <p class="meta" id="curriculum-meta">Storytelling & structure · Jan 4 – Mar 2, 2026</p>
+
+      <!-- Keep your live calculations panel -->
+      <div class="panel">
+        <div class="progress-header">
+          <span>Progress</span> 
+          <span id="progress-stats">0 of 0 completed</span>
+        </div>
+        <div class="progress-track">
+           <div id="progress-bar-fill" class="progress-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="list-header">
+        <span>Reading list</span>
+        <button class="btn-primary"><a href="AddItemBook.html">+ Add item</a></button>
+      </div>
+      
+      <!-- CRITICAL CONTAINER: Narrative craft books render right back inside here -->
+      <div id="reading-list-container" class="item-list"></div>
+
+
+        
+      <!--
+      <div class="item-card">
+        <div class="item-main">
+          <p class="item-title">The Anatomy of Story</p>
+          <p class="meta">John Truby</p>
+        </div>
+        <span class="badge type-book">Book</span>
+        <span class="badge status-done">● Completed</span>
+        <button class="icon-btn">🗑</button>
+      </div>
+
+      <div class="item-card">
+        <div class="item-main">
+          <p class="item-title">Bird by Bird</p>
+          <p class="meta">Anne Lamott</p>
+        </div>
+        <span class="badge type-book">Book</span>
+        <span class="badge status-doing">● In progress</span>
+        <button class="icon-btn">🗑</button>
+      </div>
+
+      <div class="item-card">
+        <div class="item-main">
+          <p class="item-title">On Writing Well</p>
+          <p class="meta">William Zinsser</p>
+        </div>
+        <span class="badge type-book">Book</span>
+        <span class="badge status-todo">● Not started</span>
+        <button class="icon-btn">🗑</button>
+      </div>
+      -->
+    </main>
+  </div>
+
+  <script>lucide.createIcons();</script>
+  <script src="interactive.js"></script>
+</body>
+</html>

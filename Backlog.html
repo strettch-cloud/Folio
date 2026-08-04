@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Folio — Reading Backlog</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside>
+      <div class="brand">
+        <i data-lucide="book-open"></i>
+        Folio
+      </div>
+      <nav>
+        <button class="nav-item">
+          <!-- FIXED: Converted absolute URL into clean relative file links -->
+          <i data-lucide="book-open"></i><a href="Reading_Curriculum.html" style="text-decoration: none; color: inherit;">Curriculum</a>
+        </button>
+        <button class="nav-item active">
+          <i data-lucide="library"></i>
+          Backlog
+        </button>
+      </nav>
+      <p class="sidebar-footer">Reading curriculum app</p>
+    </aside>
+
+    <!-- Mobile top bar -->
+    <div class="topbar">
+      <div class="brand">
+        <i data-lucide="book-open"></i>
+        Folio
+      </div>
+      <div class="topbar-nav">
+        <button class="nav-item">
+          <i data-lucide="book-open"></i><a href="Reading_Curriculum.html" style="text-decoration: none; color: inherit;">Curriculum</a>
+        </button>
+        <button class="nav-item active">
+          <i data-lucide="library"></i>
+          Backlog
+        </button>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <main>
+      <!-- Page header -->
+      <div class="page-header">
+        <div>
+          <h1>Reading backlog</h1>
+          <p class="meta">Everything you've saved to read.</p>
+        </div>
+        <button class="btn-primary">
+          <!-- FIXED: Converted absolute URL into clean relative file links -->
+          <i data-lucide="plus"></i><a href="AddItemBook.html" style="text-decoration: none; color: inherit;">Add item</a>
+        </button>
+      </div>
+
+      <!-- The Backlog Controls (Section 8) -->
+      <div class="toolbar">
+        <div class="search-wrap" style="position: relative; flex: 1;">
+          <i data-lucide="search" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--fg-3);"></i>
+          <input type="text" id="backlog-search" placeholder="Search by title or author" style="padding-left: 38px; width: 100%;">
+        </div>
+        <div class="filter-pills">
+          <button class="pill active" data-filter="All">All</button>
+          <button class="pill" data-filter="Book">Books</button>
+          <button class="pill" data-filter="Article">Articles</button>
+        </div>
+      </div>
+
+      <!-- TARGET CONTAINER: JavaScript handles building everything inside here dynamically -->
+      <div id="backlog-cards-container" class="item-list"></div>
+    </main>
+
+  </div>
+
+  <script>
+    // Wait for dynamic loops to draw before painting icons
+    window.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderBacklogView === 'function') {
+        renderBacklogView();
+      } else if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+  </script>
+  <!-- Main Application Logic Script Mapping -->
+  <script src="interactive.js"></script>
+</body>
+</html>

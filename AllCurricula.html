@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> All Curricula</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside>
+      <div class="brand">
+        <i data-lucide="book-open"></i>
+        Folio
+      </div>
+      <nav>
+        <button class="nav-item active">
+          <i data-lucide="book-open"></i>
+          Curriculum
+        </button>
+        <button class="nav-item">
+          <i data-lucide="library"></i><a href="http://127.0.0.1:5500/Backlog.html">
+          Backlog</a>
+        </button>
+      </nav>
+      <p class="sidebar-footer">Reading curriculum app</p>
+    </aside>
+
+    <!-- Mobile top bar -->
+    <div class="topbar">
+      <div class="brand">
+        <i data-lucide="book-open"></i>
+        Folio
+      </div>
+      <div class="topbar-nav">
+        <button class="nav-item active">
+          <i data-lucide="book-open"></i>
+          Curriculum
+        </button>
+        <button class="nav-item">
+          <i data-lucide="library"></i>
+          Backlog
+        </button>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <main>
+
+      <!-- Page header -->
+      <div class="page-header">
+        <div>
+          <h1>Your curricula</h1>
+          <p class="meta">Themed reading plans, past and present.</p>
+        </div>
+        <button class="btn-primary">
+          <i data-lucide="plus"></i><a href="http://127.0.0.1:5500/CreateCurriculum.html">
+          Create curriculum</a>
+        </button>
+      </div>
+
+      <!-- Curriculum card grid -->
+      <div class="card-grid">
+
+        <!-- Active card -->
+        <div class="curriculum-card">
+          <div class="card-title-row">
+            <h2 class="card-title">Narrative craft</h2>
+            <span class="badge badge-active">
+              <i data-lucide="circle"></i>
+              Active
+            </span>
+          </div>
+          <p class="meta">Storytelling & structure</p>
+          <p class="meta">Jan 4 – Mar 2, 2026</p>
+          <div class="card-footer">
+            <span class="meta">7 items · 3 completed</span>
+            <div class="card-actions">
+              <button class="icon-btn" title="Archive">
+                <i data-lucide="archive"></i>
+              </button>
+              <button class="icon-btn icon-btn-danger" title="Delete">
+                <i data-lucide="trash-2"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Archived card -->
+        <div class="curriculum-card card-archived">
+          <div class="card-title-row">
+            <h2 class="card-title">Systems thinking</h2>
+            <span class="badge badge-archived">Archived</span>
+          </div>
+          <p class="meta">Feedback loops</p>
+          <p class="meta">Nov 1 – Dec 20, 2025</p>
+          <div class="card-footer">
+            <span class="meta">3 items · 2 completed</span>
+            <div class="card-actions">
+              <button class="icon-btn" title="Unarchive">
+                <i data-lucide="archive"></i>
+              </button>
+              <button class="icon-btn icon-btn-danger" title="Delete">
+                <i data-lucide="trash-2"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regular card -->
+        <div class="curriculum-card">
+          <div class="card-title-row">
+            <h2 class="card-title">Deep work</h2>
+          </div>
+          <p class="meta">Focus & productivity</p>
+          <p class="meta">Sep 1 – Oct 15, 2025</p>
+          <div class="card-footer">
+            <span class="meta">5 items · 5 completed</span>
+            <div class="card-actions">
+              <button class="icon-btn" title="Archive">
+                <i data-lucide="archive"></i>
+              </button>
+              <button class="icon-btn icon-btn-danger" title="Delete">
+                <i data-lucide="trash-2"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

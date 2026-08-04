@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Folio — Add Item</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside>
+      <div class="brand">
+        <i data-lucide="book-open"></i>
+        Folio
+      </div>
+      <nav>
+        <button class="nav-item">
+          <i data-lucide="book-open"></i>
+          <a href="Reading_Curriculum.html" style="text-decoration: none; color: inherit;">Curriculum</a>
+        </button>
+        <button class="nav-item">
+          <i data-lucide="library"></i>
+          <a href="Backlog.html" style="text-decoration: none; color: inherit;">Backlog</a>
+        </button>
+      </nav>
+      <p class="sidebar-footer">Reading curriculum app</p>
+    </aside>
+
+    <!-- Mobile top bar -->
+    <div class="topbar">
+      <div class="brand">
+        <i data-lucide="book-open"></i>
+        Folio
+      </div>
+      <div class="topbar-nav">
+        <button class="nav-item">
+          <i data-lucide="book-open"></i>
+          <a href="Reading_Curriculum.html" style="text-decoration: none; color: inherit;">Curriculum</a>
+        </button>
+        <button class="nav-item">
+          <i data-lucide="library"></i>
+          <a href="Backlog.html" style="text-decoration: none; color: inherit;">Backlog</a>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <main class="main-narrow">
+      <button class="back-link" onclick="window.location.href='Backlog.html'">
+        <i data-lucide="arrow-left"></i>
+        Back
+      </button>
+
+      <h1>Add item</h1>
+      <p class="meta">Save a book or article to your backlog.</p>
+
+      <!-- FIXED FORM WRAPPER (Removed stray closing tag) -->
+      <div class="form">
+        
+        <div class="form-field">
+          <label>Type</label>
+          <div class="segmented">
+            <a href="AddItemBook.html" class="seg-btn active" style="text-decoration: none; display: inline-block; text-align: center;">Book</a>
+            <a href="AddItemArticle.html" class="seg-btn" style="text-decoration: none; display: inline-block; text-align: center;">Article</a>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label>Title</label>
+          <input type="text" placeholder="Book title">
+        </div>
+
+        <div class="form-field">
+          <label>Author</label>
+          <input type="text" placeholder="Author name">
+        </div>
+
+        <div class="form-field">
+          <label>Note <span class="label-hint">(Optional)</span></label>
+          <textarea placeholder="Why you saved it, where you heard about it..."></textarea>
+        </div>
+
+        <div class="form-field">
+          <label>Tags <span class="label-hint">(Comma-separated)</span></label>
+          <input type="text" placeholder="e.g. design, history">
+        </div>
+
+        <div class="form-actions">
+          <button class="btn-secondary" onclick="window.location.href='Backlog.html'">Cancel</button>
+          <button class="btn-primary">Save item</button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const saveBtn = document.querySelector('.btn-primary');
+
+    saveBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const titleVal = document.querySelector('input[placeholder="Book title"]').value.trim();
+        const authorVal = document.querySelector('input[placeholder="Author name"]').value.trim();
+        const noteVal = document.querySelector('textarea[placeholder*="Why you saved it"]').value.trim();
+        const tagsVal = document.querySelector('input[placeholder="e.g. design, history"]').value.trim();
+
+        if (!titleVal) {
+            alert("Title is required");
+            return;
+        }
+
+        const tagsArray = tagsVal.split(',').map(t => t.trim()).filter(t => t !== "");
+
+        const newBook = {
+            id: "b_" + Date.now(),
+            title: titleVal,
+            by: authorVal,
+            source: "",
+            url: "",
+            type: "Book",
+            tags: tagsArray,
+            note: noteVal,
+            status: "Not started"
+        };
+
+        let currentBacklog = JSON.parse(localStorage.getItem('backlogData')) || [];
+        currentBacklog.push(newBook);
+        localStorage.setItem('backlogData', JSON.stringify(currentBacklog));
+        
+        // Dynamic explicit router direction bypasses history cache freeze bugs
+        const cameFrom = document.referrer;
+        if (cameFrom && (cameFrom.includes("Reading_Curriculum.html") || cameFrom.includes("Backlog.html"))) {
+            window.location.href = cameFrom; 
+        } else {
+            window.location.href = "Backlog.html";
+        }
+    });
+
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Folio — Create Curriculum</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside>
+      <div class="brand">
+        <i data-lucide="book-open"></i>
+        Folio
+      </div>
+      <nav>
+        <button class="nav-item active">
+          <i data-lucide="book-open"></i>
+          Curriculum
+        </button>
+        <button class="nav-item">
+          <i data-lucide="library"></i>
+          Backlog
+        </button>
+      </nav>
+      <p class="sidebar-footer">Reading curriculum app</p>
+    </aside>
+
+    <!-- Mobile top bar -->
+    <div class="topbar">
+      <div class="brand">
+        <i data-lucide="book-open"></i>
+        Folio
+      </div>
+      <div class="topbar-nav">
+        <button class="nav-item active">
+          <i data-lucide="book-open"></i>
+          Curriculum
+        </button>
+        <button class="nav-item">
+          <i data-lucide="library"></i>
+          Backlog
+        </button>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <main class="main-narrow">
+
+      <!-- Back link -->
+      <button class="back-link">
+        <i data-lucide="arrow-left"></i><a href="http://127.0.0.1:5500/AllCurricula.html">
+        Back to curricula</a>
+      </button>
+
+      <!-- Page title -->
+      <h1>Create curriculum</h1>
+      <p class="meta">A themed plan with a start and end date. Add books and articles after.</p>
+
+      <!-- Form -->
+      <div class="form">
+
+        <div class="form-field">
+          <label>Theme</label>
+          <input type="text" placeholder="e.g. Narrative craft">
+        </div>
+
+        <div class="date-row">
+          <div class="form-field">
+            <label>Start date</label>
+            <input type="date">
+          </div>
+          <div class="form-field">
+            <label>End date</label>
+            <input type="date">
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn-secondary">Cancel</button>
+          <button class="btn-primary">Save curriculum</button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>
